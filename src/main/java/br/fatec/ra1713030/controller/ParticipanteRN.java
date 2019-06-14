@@ -3,6 +3,7 @@ package br.fatec.ra1713030.controller;
 import java.util.List;
 
 import br.fatec.ra1713030.dao.DAOFactory;
+import br.fatec.ra1713030.dao.DAOFactoryParticipante;
 import br.fatec.ra1713030.dao.ParticipanteDAO;
 import br.fatec.ra1713030.model.Participante;
 
@@ -10,7 +11,7 @@ public class ParticipanteRN {
 	private ParticipanteDAO participanteDAO;
 
 	public ParticipanteRN() {
-		this.participanteDAO = DAOFactory.criaParticipanteDAO();
+		this.participanteDAO = DAOFactoryParticipante.criaParticipanteDAO();
 	}
 
 	// carrega uma instancia

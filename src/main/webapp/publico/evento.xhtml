@@ -17,9 +17,8 @@
 		<h:messages />
 		<!--  como tem a propriedade evento dentro da Bean chama assim  -->
 		<!--  campos hidden é oculto só serve para ser alimentado no banco diretamente  -->
-		<h:inputHidden value="#{eventoBean.evento.codigo}" />
-		<h:inputHidden value="#{eventoBean.evento.ativo}" />
-
+		<h:inputHidden value="#{eventoBean.evento.idEvento}" />
+		
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome:" for="nome" />
 			<h:inputText id="nome" label="Nome"
@@ -43,7 +42,6 @@
 			<h:inputText id="localevento" label="Local Evento"
 				value="#{eventoBean.evento.localEvento}" size="100" />
 			</h:inputText>
-			<h:message for="email" />
 			</h:panelGroup>
 			<h:outputText value="" />
 			<h:commandButton value="Salvar" action="#{eventoBean.salvar}" />
