@@ -32,6 +32,6 @@
 
 
 		<!-- Mapeando classes -->
-		<mapping class="br.fatec.exercicio8.model.Usuario" />
+		<mapping class="br.fatec.Ra1713030.model.Usuario" />
 	</session-factory>
 </hibernate-configuration>
