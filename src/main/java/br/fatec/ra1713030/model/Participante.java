@@ -19,16 +19,19 @@ public class Participante {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@NaturalId
+	private Integer idParticipante;
+
    
 	@ManyToOne
 	@JoinColumn(name="idEventoPart", referencedColumnName="idEvento",nullable=false, insertable=false, updatable=false)
+	
+
 	private Evento evento;
 	
 	@NaturalId
 	private Integer idEventoPart;
-	@NaturalId
-	private Integer idParticipante;
+
 	
 	public Integer getIdParticipante() {
 		return idParticipante;
@@ -50,6 +53,10 @@ public class Participante {
 	}
 	public String getEmpresaParticipante() {
 		return empresaParticipante;
+	}
+	
+	public void setIdEventoPart(Integer idEventoPart) {
+		this.idEventoPart = idEventoPart;
 	}
 	public void setEmpresaParticipante(String empresaParticipante) {
 		this.empresaParticipante = empresaParticipante;

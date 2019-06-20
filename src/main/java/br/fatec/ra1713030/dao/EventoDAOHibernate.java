@@ -64,7 +64,7 @@ public class EventoDAOHibernate implements EventoDAO{
 		// this.session.getSessionFactory().openSession();
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
-		String hql = "from Permissao";
+		String hql = "from Evento";
 		@SuppressWarnings("unchecked")
 		List<Evento> lista = session.createQuery(hql).list();
 		if (lista != null) {
