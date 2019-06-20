@@ -9,5 +9,5 @@ public interface EventoDAO {
 	public void atualizar(Evento evento);	
 	public void excluir(Evento evento);
 	public Evento carregar(Integer codigo);
-	public List<Evento> listar();
+	public List listar();
 }

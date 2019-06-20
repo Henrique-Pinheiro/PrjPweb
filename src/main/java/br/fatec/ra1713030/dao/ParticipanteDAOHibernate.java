@@ -4,7 +4,10 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+
+import br.fatec.ra1713030.model.Evento;
 import br.fatec.ra1713030.model.Participante;
+import br.fatec.ra1713030.util.HibernateUtil;
 
 public class ParticipanteDAOHibernate implements ParticipanteDAO{
 	
@@ -58,11 +61,18 @@ public class ParticipanteDAOHibernate implements ParticipanteDAO{
 
 	// select sem criterio
 
-	@SuppressWarnings("unchecked")
 	public List<Participante> listar() {
-		this.session.getSessionFactory().openSession();
+		// this.session.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
-		return this.session.createCriteria(Participante.class).list();
+		String hql = "from Permissao";
+		@SuppressWarnings("unchecked")
+		List<Participante> lista = session.createQuery(hql).list();
+		if (lista != null) {
+			return lista;s
+		} else {
+			System.out.println("nao passou nada");
+			return null;
+		}
 	}
-
 }

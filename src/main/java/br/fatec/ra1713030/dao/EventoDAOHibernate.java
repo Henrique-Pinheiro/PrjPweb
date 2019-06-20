@@ -4,6 +4,8 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+
+import br.fatec.ra1713030.util.HibernateUtil;
 import br.fatec.ra1713030.model.Evento;
 
 public class EventoDAOHibernate implements EventoDAO{
@@ -58,11 +60,19 @@ public class EventoDAOHibernate implements EventoDAO{
 
 	// select sem criterio
 
-	@SuppressWarnings("unchecked")
 	public List<Evento> listar() {
-		this.session.getSessionFactory().openSession();
+		// this.session.getSessionFactory().openSession();
+		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
-		return this.session.createCriteria(Evento.class).list();
+		String hql = "from Permissao";
+		@SuppressWarnings("unchecked")
+		List<Evento> lista = session.createQuery(hql).list();
+		if (lista != null) {
+			return lista;
+		} else {
+			System.out.println("nao passou nada");
+			return null;
+		}
 	}
 
 }

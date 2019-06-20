@@ -6,10 +6,10 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-
 import br.fatec.ra1713030.dao.EventoDAO;
 import br.fatec.ra1713030.dao.EventoDAOHibernate;
 import br.fatec.ra1713030.model.Evento;
+import br.fatec.ra1713030.util.HibernateUtil;
 
 
 @ManagedBean(name = "eventoBean")
@@ -55,14 +55,14 @@ public class EventoBean {
 
 	public String listagem() {
 		this.evento = new Evento();
-		return "publico/listagemp"; // tenta exibir eventoalt.xhtml
+		return "publico/listagemEvento.xhtml";
 	}
 
 	public String salvar() {
 		// se deu certo
 		EventoRN eventoRN = new EventoRN();
 		eventoRN.salvar(this.evento);
-		return "eventosucesso"; // tenta abrir pagina /public/eventosucesso
+		return "eventoSucesso"; // tenta abrir pagina /public/eventosucesso
 									// nao colocou o publico mas
 		// o contexto de salvar está em /publico
 	}

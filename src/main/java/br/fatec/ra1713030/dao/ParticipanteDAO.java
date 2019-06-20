@@ -9,5 +9,5 @@ public interface ParticipanteDAO {
 	public void atualizar(Participante participante);	
 	public void excluir(Participante participante);
 	public Participante carregar(Integer codigo);
-	public List<Participante> listar();
+	public List listar();
 }

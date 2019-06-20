@@ -55,17 +55,16 @@ public class ParticipanteBean {
 
 	public String listagem() {
 		this.participante = new Participante();
-		return "publico/listagem"; // tenta exibir participantealt.xhtml
+		return "publico/listagemParticipante"; // tenta exibir participantealt.xhtml
 	}
 
 	public String salvar() {
 		// facescontext adiciona as mensagens de erro que possam ser criadas
 		FacesContext context = FacesContext.getCurrentInstance();
-
 		// se deu certo
 		ParticipanteRN participanteRN = new ParticipanteRN();
 		participanteRN.salvar(this.participante);
-		return "participantesucesso"; // tenta abrir pagina /public/participantesucesso
+		return "participanteSucesso"; // tenta abrir pagina /public/participantesucesso
 										// nao colocou o publico mas
 		// o contexto de salvar está em /publico
 	}
@@ -78,7 +77,7 @@ public class ParticipanteBean {
 		List<Participante> participante2 = pais.listar();
 		// Alimenta Modelo
 		for (Participante c : participante2) {
-			SelectItem selecao = new SelectItem(c.getIdParticipante(), c.getnomeParticipanteParticipante());
+			SelectItem selecao = new SelectItem(c.getIdParticipante(), c.getnomeParticipante());
 			participanteItem.add(selecao);
 		}
 		return participanteItem;

@@ -5,14 +5,29 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
 
 @Entity
 @Table(name = "participante")
 public class Participante {
 	
+
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
+   
+	@ManyToOne
+	@JoinColumn(name="idEventoPart", referencedColumnName="idEvento",nullable=false, insertable=false, updatable=false)
+	private Evento evento;
+	
+	@NaturalId
+	private Integer idEventoPart;
+	@NaturalId
 	private Integer idParticipante;
 	
 	public Integer getIdParticipante() {
@@ -21,10 +36,10 @@ public class Participante {
 	public void setIdParticipante(Integer idParticipante) {
 		this.idParticipante = idParticipante;
 	}
-	public String getnomeParticipanteParticipante() {
+	public String getnomeParticipante() {
 		return nomeParticipante;
 	}
-	public void setnomeParticipanteParticipante(String nomeParticipanteParticipante) {
+	public void setnomeParticipante(String nomeParticipanteParticipante) {
 		this.nomeParticipante= nomeParticipanteParticipante;
 	}
 	public Date getDtNascParticipante() {
@@ -39,10 +54,10 @@ public class Participante {
 	public void setEmpresaParticipante(String empresaParticipante) {
 		this.empresaParticipante = empresaParticipante;
 	}
-	public String getemailParticipanteParticipante() {
+	public String getemailParticipante() {
 		return emailParticipante;
 	}
-	public void setemailParticipanteParticipante(String emailParticipanteParticipante) {
+	public void setemailParticipante(String emailParticipanteParticipante) {
 		this.emailParticipante= emailParticipanteParticipante;
 	}
 	public String getCpfParticipante() {
@@ -54,10 +69,23 @@ public class Participante {
 	public Integer getIdEvento() {
 		return idEvento;
 	}
-	public void setIdEvento(Evento evento) {
-		idEvento = evento.getIdEvento();
+	public void setIdEvento(Integer IdEvento) {
+		this.idEvento = IdEvento;
 	}
 	
+	public Evento getEvento() {
+		return evento;
+	}
+	public Integer getIdEventoPart() {
+		return idEventoPart;
+	}
+	public String getNomeParticipante() {
+		return nomeParticipante;
+	}
+	public String getEmailParticipante() {
+		return emailParticipante;
+	}
+
 	private String nomeParticipante;
 	private Date dtNascParticipante;
 	private String empresaParticipante;

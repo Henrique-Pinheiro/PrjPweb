@@ -40,9 +40,7 @@
 
 			<h:outputLabel value="Local Evento:" for="localevento" />
 			<h:inputText id="localevento" label="Local Evento"
-				value="#{eventoBean.evento.localEvento}" size="100" />
-			</h:inputText>
-			</h:panelGroup>
+				value="#{eventoBean.evento.localEvento}" size="100" required="true" />
 			<h:outputText value="" />
 			<h:commandButton value="Salvar" action="#{eventoBean.salvar}" />
 		</h:panelGrid>
